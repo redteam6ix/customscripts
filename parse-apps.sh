@@ -95,7 +95,7 @@ then
 	do
 		app=$(echo $i | tr -s ' ' | cut -f 2 -d ' '| sed 's/-/ /g' | sed 's/:/ /g') 
 		ver=$(echo $i | tr -s ' ' | cut -f 3 -d ' '| cut -f 1 -d '-'| cut -f 1 -d '+'| cut -f 1-2 -d '.') # less precise, to increase precision remove | cut -f 1-2 -d '.'
-		echo "searching for $app $ver..."
+		echo "searching for $app $ver ($(echo $i | tr -s ' '| cut -f 2-3 -d ' '))..."
 		if (searchsploit $app $ver | eval $filter | grep -is "$app")
 		then
 			echo ""
@@ -112,7 +112,7 @@ then
 	do
 		app=$(echo $i | rev | cut -f 3- -d '-' | rev | sed 's/-/ /g' | sed 's/:/ /g') 
 		ver=$(echo $i | rev | cut -f 2 -d '-' | rev | cut -f 1 -d '+'| cut -f 1-2 -d '.') # less precise, to increase precision remove | cut -f 1-2 -d '.'
-		echo "searching for $app $ver..."
+		echo "searching for $app $ver ($(echo $i | tr -s ' '))..."
 		if (searchsploit $app $ver | eval $filter | grep -is "$app")
 		then
 			echo ""
