@@ -84,10 +84,6 @@ then
 	fi
 fi
 
-echo $distro
-echo $type
-echo $filter
-
 #### draw headers
 echo ""
 searchsploit 11111 | head -n 3
